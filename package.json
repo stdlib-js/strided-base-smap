@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/strided-base-smap",
-  "version": "0.0.0",
+  "version": "0.0.8",
   "description": "Apply a unary function to a single-precision floating-point strided input array and assign results to a single-precision floating-point strided output array.",
   "license": "Apache-2.0",
   "author": {
