@@ -41,38 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/strided-base-smap
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-smap = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-smap@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var smap = require( 'path/to/vendor/umd/strided-base-smap/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-smap@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.smap;
-})();
-</script>
+var smap = require( '@stdlib/strided-base-smap' );
 ```
 
 #### smap( N, x, strideX, y, strideY, fcn )
@@ -179,16 +173,11 @@ smap.ndarray( 3, x, 2, 1, y, -1, y.length-1, absf );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-smap@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var round = require( '@stdlib/math-base-special-round' );
+var randu = require( '@stdlib/random-base-randu' );
+var Float32Array = require( '@stdlib/array-float32' );
+var smap = require( '@stdlib/strided-base-smap' );
 
 function scale( x ) {
     return x * 10.0;
@@ -206,11 +195,6 @@ console.log( y );
 
 smap.ndarray( x.length, x, 1, 0, y, -1, y.length-1, scale );
 console.log( y );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -219,7 +203,122 @@ console.log( y );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/strided/base/smap.h"
+```
+
+#### stdlib_strided_smap( N, \*X, strideX, \*Y, strideY, fcn )
+
+Applies a unary function to a single-precision floating-point strided input array and assigns results to a single-precision floating-point strided output array.
+
+```c
+#include <stdint.h>
+
+static float scale( const float x ) {
+    return x * 10.0f;
+}
+
+float X[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+float Y[] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+
+int64_t N = 6;
+
+stdlib_strided_smap( N, X, 1, Y, 1, scale );
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] int64_t` number of indexed elements.
+-   **X**: `[in] float*` input array.
+-   **strideX** `[in] int64_t` index increment for `X`.
+-   **Y**: `[out] float*` output array.
+-   **strideY**: `[in] int64_t` index increment for `Y`.
+-   **fcn**: `[in] float (*fcn)( float )` unary function to apply.
+
+```c
+void stdlib_strided_smap( const int64_t N, const float *X, const int64_t strideX, float *Y, const int64_t strideY, float (*fcn)( float ) );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/strided/base/smap.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+// Define a callback:
+static float scale( const float x ) {
+    return x * 10.0;
+}
+
+int main( void ) {
+    // Create an input strided array:
+    float X[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+
+    // Create an output strided array:
+    float Y[] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+
+    // Specify the number of elements:
+    int64_t N = 6;
+
+    // Define the strides:
+    int64_t strideX = 1;
+    int64_t strideY = -1;
+
+    // Apply the callback:
+    stdlib_strided_smap( N, X, strideX, Y, strideY, scale );
+
+    // Print the results:
+    for ( int64_t i = 0; i < N; i++ ) {
+        printf( "Y[ %"PRId64" ] = %f\n", i, Y[ i ] );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -299,19 +398,22 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 [deno-url]: https://github.com/stdlib-js/strided-base-smap/tree/deno
+[deno-readme]: https://github.com/stdlib-js/strided-base-smap/blob/deno/README.md
 [umd-url]: https://github.com/stdlib-js/strided-base-smap/tree/umd
+[umd-readme]: https://github.com/stdlib-js/strided-base-smap/blob/umd/README.md
 [esm-url]: https://github.com/stdlib-js/strided-base-smap/tree/esm
+[esm-readme]: https://github.com/stdlib-js/strided-base-smap/blob/esm/README.md
 [branches-url]: https://github.com/stdlib-js/strided-base-smap/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/strided-base-smap/main/LICENSE
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/umd
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 <!-- <related-links> -->
 
-[@stdlib/strided/base/dmap]: https://github.com/stdlib-js/strided-base-dmap/tree/umd
+[@stdlib/strided/base/dmap]: https://github.com/stdlib-js/strided-base-dmap
 
-[@stdlib/strided/base/unary]: https://github.com/stdlib-js/strided-base-unary/tree/umd
+[@stdlib/strided/base/unary]: https://github.com/stdlib-js/strided-base-unary
 
 <!-- </related-links> -->
 
