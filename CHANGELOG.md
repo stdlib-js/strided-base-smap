@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-11-05)
+## Unreleased (2025-12-25)
 
 <section class="issues">
 
@@ -24,6 +24,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`fd0eac6`](https://github.com/stdlib-js/stdlib/commit/fd0eac6ed49c2faabf74cdf31d133f4ac4b40a3c) - **bench:** refactor to use dynamic memory allocation in `strided/base/smap` [(#9353)](https://github.com/stdlib-js/stdlib/pull/9353) _(by Omar Mohamed)_
 -   [`4d1c412`](https://github.com/stdlib-js/stdlib/commit/4d1c412c6e983f9076b3ec7f733d81893a398a39) - **chore:** fix C lint errors [(#8392)](https://github.com/stdlib-js/stdlib/pull/8392) _(by Geo Daoyu, Athan Reines)_
 -   [`504a3f1`](https://github.com/stdlib-js/stdlib/commit/504a3f1d1db20b670b48efd1c292d7efbb433b58) - **style:** fix indentation in JSON files _(by Philipp Burckhardt)_
 -   [`74b15bb`](https://github.com/stdlib-js/stdlib/commit/74b15bba6c22bcdd23d61a4e8996a59c7ef0f041) - **refactor:** update paths _(by Gururaj Gurram)_
@@ -40,11 +41,12 @@ This release closes the following issue:
 
 ### Contributors
 
-A total of 4 people contributed to this release. Thank you to the following contributors:
+A total of 5 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
 -   Geo Daoyu
 -   Gururaj Gurram
+-   Omar Mohamed
 -   Philipp Burckhardt
 
 </section>
