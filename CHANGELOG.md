@@ -4,7 +4,19 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-04)
+## Unreleased (2026-07-31)
+
+<section class="issues">
+
+### Closed Issues
+
+This release closes the following issue:
+
+[#13741](https://github.com/stdlib-js/stdlib/pull/13741)
+
+</section>
+
+<!-- /.issues -->
 
 <section class="commits">
 
@@ -12,6 +24,8 @@
 
 <details>
 
+-   [`d5a00c3`](https://github.com/stdlib-js/stdlib/commit/d5a00c3302f2b8aef697753c513f290782feb966) - **chore:** fix C lint errors [(#13741)](https://github.com/stdlib-js/stdlib/pull/13741) _(by A Sivasubramanian Manoj, Athan Reines)_
+-   [`945328a`](https://github.com/stdlib-js/stdlib/commit/945328aa14e710f4b828b8fa303173c660c77817) - **chore:** clean-up [(#13390)](https://github.com/stdlib-js/stdlib/pull/13390) _(by Philipp Burckhardt)_
 -   [`a7a9c99`](https://github.com/stdlib-js/stdlib/commit/a7a9c996c179dcdbfc6468281bc6323d53d6f51f) - **bench:** refactor to use string interpolation in `@stdlib/strided-base` [(#11451)](https://github.com/stdlib-js/stdlib/pull/11451) _(by Uday Kakade, Karan Anand)_
 
 </details>
@@ -24,9 +38,12 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 5 people contributed to this release. Thank you to the following contributors:
 
+-   A Sivasubramanian Manoj
+-   Athan Reines
 -   Karan Anand
+-   Philipp Burckhardt
 -   Uday Kakade
 
 </section>
