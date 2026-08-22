@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-31)
+## Unreleased (2026-08-22)
 
 <section class="issues">
 
@@ -12,7 +12,7 @@
 
 This release closes the following issue:
 
-[#13741](https://github.com/stdlib-js/stdlib/pull/13741)
+[#13733](https://github.com/stdlib-js/stdlib/issues/13733)
 
 </section>
 
